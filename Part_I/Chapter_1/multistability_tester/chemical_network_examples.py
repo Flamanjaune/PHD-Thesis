@@ -13,6 +13,31 @@ def open_reference(network_example):
     else:
         webbrowser.open(url)
 
+self_positive_feedback = dict(
+    network="""
+        degA: A -> 0
+        bindA: 2 A + OA <-> OA2A
+        prodA: OA2A -> OA2A + A
+    """,
+    multistability=True,
+    name="Self positive feedback loop",
+    ref=None,  # TODO find actual ref.
+    reflink=None)
+
+double_positive_feedback = dict(
+    network="""
+        degA: A -> 0
+        bindA: 2 A + OB <-> OB2A
+        prodA: OB2A -> OB2A + A
+
+        degB: B -> 0
+        bindB: 2 B + OA <-> OA2B
+        prodB: OA2B -> OA2B + B
+    """,
+    multistability=True,
+    name="Double positive feedback loop",
+    ref="Richard, Richard et al.",  # TODO find actual ref.
+    reflink=None)
 
 double_negative_feedback = dict(
     network="""
