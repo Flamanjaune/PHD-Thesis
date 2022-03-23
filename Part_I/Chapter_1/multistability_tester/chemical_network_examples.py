@@ -21,18 +21,18 @@ self_positive_feedback = dict(
     """,
     multistability=True,
     name="Self positive feedback loop",
-    ref=None,  # TODO find actual ref.
+    ref="Richard, Richard et al.",  # TODO find actual ref.
     reflink=None)
 
 double_positive_feedback = dict(
     network="""
         degA: A -> 0
         bindA: 2 A + OB <-> OB2A
-        prodA: OB2A -> OB2A + A
+        prodB: OB2A -> OB2A + B
 
         degB: B -> 0
         bindB: 2 B + OA <-> OA2B
-        prodB: OA2B -> OA2B + B
+        prodA: OA2B -> OA2B + A
     """,
     multistability=True,
     name="Double positive feedback loop",
@@ -148,6 +148,8 @@ minimal_bistable_networks = [
 ]
 
 
-examples = [double_negative_feedback,
+examples = [self_positive_feedback,
+            double_positive_feedback,
+            double_negative_feedback,
             simple_enzyme_kinetics,
             two_step_enzyme_kinetics] + minimal_bistable_networks
